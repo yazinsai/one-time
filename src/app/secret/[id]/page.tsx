@@ -1,4 +1,4 @@
-import { getSecret } from "../../../lib/cache";
+import { getSecret } from "@/lib/cache";
 
 export default async function SecretPage({
 	params,

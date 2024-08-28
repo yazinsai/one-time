@@ -2,6 +2,9 @@
 
 import { handleSubmit } from "./actions";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function Home() {
 	const router = useRouter();
@@ -14,23 +17,28 @@ export default function Home() {
 	}
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center p-24">
-			<h1 className="text-4xl font-bold mb-8">Secret Information App</h1>
-			<form action={onSubmit} className="w-full max-w-md">
-				<textarea
-					name="secret"
-					placeholder="Enter your secret information here..."
-					className="w-full p-2 mb-4 border border-gray-300 rounded"
-					rows={4}
-					required
-				/>
-				<button
-					type="submit"
-					className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-				>
-					Generate Secret URL
-				</button>
-			</form>
+		<main className="flex min-h-screen flex-col items-center justify-center">
+			<Card className="w-full max-w-md">
+				<CardHeader>
+					<CardTitle className="text-3xl font-bold text-center">
+						Secret Information App
+					</CardTitle>
+				</CardHeader>
+				<CardContent>
+					<form action={onSubmit} className="space-y-4">
+						<Textarea
+							name="secret"
+							placeholder="Enter your secret information here..."
+							className="w-full"
+							rows={4}
+							required
+						/>
+						<Button type="submit" className="w-full">
+							Generate Secret URL
+						</Button>
+					</form>
+				</CardContent>
+			</Card>
 		</main>
 	);
 }
